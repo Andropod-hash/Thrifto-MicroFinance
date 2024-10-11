@@ -1,0 +1,44 @@
+{% block content %}
+
+<section>
+    <div>
+        <div>
+            <div>
+                <h5>Account</h5>
+                <h2>Welcome to Thrifto</h2>
+            
+            <form method="POST">
+                {% csrf_token %}
+                <div>
+                    {% if form.errors %}
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div>
+                    <div>
+                        {{ form.username.label_tag }} {{ form.username }}
+                    </div>
+                    <div>
+                        {{ form.email.label_tag }} {{ form.email }}
+                    </div>
+                    <div>
+                        {{ form.password1.label_tag }} {{ form.password1 }}
+                    </div>
+                    <div>
+                        {{ form.password2.label_tag }} {{ form.password2 }}
+                    </div>
+                    <button type="submit">Sign Up</button>
+                </div>
+            </form>
+
+            <!-- Login Link -->
+            <p>Already have an account? <a href="{% url 'login' %}">Log In</a></p>
+        </div>
+    </div>
+</section>
+<!-- Login Reg end -->
+{% endblock content %}

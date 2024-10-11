@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2FA Verification</title>
+</head>
+<body>
+    <h2>Two-Factor Authentication</h2>
+
+    <!-- Display error messages if any -->
+    {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div>{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <form method="POST" action="{% url 'two_fa_input' user_id %}">
+        {% csrf_token %}
+        <div>
+            <label for="two_fa_code">Enter your 2FA code:</label>
+            <input type="text" id="two_fa_code" name="two_fa_code" placeholder="6-digit code" required>
+        </div>
+
+        <button type="submit">Verify</button>
+    </form>
+
+    <p>If you didn’t receive the code, please check your email or try again.</p>
+</body>
+</html>

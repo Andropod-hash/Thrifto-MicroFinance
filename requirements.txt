@@ -1,0 +1,25 @@
+# Django and Django REST Framework
+Django==4.2.4                       # Your specific Django version
+djangorestframework==3.14.0          # Django REST Framework for building APIs
+
+# Image handling
+Pillow==10.0.0                       # For image uploads (JPG, PNG)
+
+# Environment management
+django-environ==0.10.0               # For handling environment variables
+
+# Authentication
+djangorestframework-simplejwt==5.2.2  # JWT authentication support
+argon2-cffi==21.3.0                   # Secure password hashing
+
+# Database support (optional)
+psycopg2-binary==2.9.6                # PostgreSQL adapter
+mysqlclient==2.2.0                     # MySQL adapter
+
+# File storage (optional)
+boto3==1.28.0                        # AWS SDK for Python (if using S3)
+django-storages==1.13.2              # Storage backends for Django
+
+
+# Debugging
+django-debug-toolbar==4.1.0           # Debugging tool for Django

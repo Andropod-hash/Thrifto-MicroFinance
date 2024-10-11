@@ -1,0 +1,102 @@
+<form method="post" action="{% url 'kyc_register' %}">
+    {% csrf_token %}
+    <!-- Display form errors -->
+    {% if form.non_field_errors %}
+        <div>{{ form.non_field_errors }}</div>
+    {% endif %}
+
+    <!-- Full Name -->
+    <div>
+        <label for="id_full_name">Full Name</label>
+        {{ form.full_name.errors }}
+        <input type="text" id="id_full_name" name="full_name" value="{{ form.full_name.value|default_if_none:'' }}">
+    </div>
+
+    <!-- KYC Email -->
+    <div>
+        <label for="id_kyc_email">KYC Email</label>
+        {{ form.kyc_email.errors }}
+        <input type="email" id="id_kyc_email" name="kyc_email" value="{{ form.kyc_email.value|default_if_none:'' }}">
+    </div>
+
+    <!-- Confirm KYC Email -->
+    <div>
+        <label for="id_confirm_kyc_email">Confirm KYC Email</label>
+        {{ form.confirm_kyc_email.errors }}
+        <input type="email" id="id_confirm_kyc_email" name="confirm_kyc_email" value="{{ form.confirm_kyc_email.value|default_if_none:'' }}">
+    </div>
+
+    <!-- KYC Phone Number -->
+    <div>
+        <label for="id_kyc_phone_number">KYC Phone Number</label>
+        {{ form.kyc_phone_number.errors }}
+        <input type="text" id="id_kyc_phone_number" name="kyc_phone_number" value="{{ form.kyc_phone_number.value|default_if_none:'' }}">
+    </div>
+
+    <!-- Confirm KYC Phone Number -->
+    <div>
+        <label for="id_confirm_kyc_phone_number">Confirm KYC Phone Number</label>
+        {{ form.confirm_kyc_phone_number.errors }}
+        <input type="text" id="id_confirm_kyc_phone_number" name="confirm_kyc_phone_number" value="{{ form.confirm_kyc_phone_number.value|default_if_none:'' }}">
+    </div>
+
+    <!-- Address -->
+    <div>
+        <label for="id_address">Address</label>
+        {{ form.address.errors }}
+        <input type="text" id="id_address" name="address" value="{{ form.address.value|default_if_none:'' }}">
+    </div>
+
+    <!-- City -->
+    <div>
+        <label for="id_city">City</label>
+        {{ form.city.errors }}
+        <input type="text" id="id_city" name="city" value="{{ form.city.value|default_if_none:'' }}">
+    </div>
+
+    <!-- Country -->
+    <div>
+        <label for="id_country">Country</label>
+        {{ form.country.errors }}
+        <input type="text" id="id_country" name="country" value="{{ form.country.value|default_if_none:'' }}">
+    </div>
+
+    <!-- Employer -->
+    <div>
+        <label for="id_employer">Employer</label>
+        {{ form.employer.errors }}
+        <input type="text" id="id_employer" name="employer" value="{{ form.employer.value|default_if_none:'' }}">
+    </div>
+
+    <!-- Salary Range -->
+    <div>
+        <label for="id_salary_range">Salary Range</label>
+        {{ form.salary_range.errors }}
+        <input type="text" id="id_salary_range" name="salary_range" value="{{ form.salary_range.value|default_if_none:'' }}">
+    </div>
+
+    <!-- Terms Agreed -->
+    <div>
+        {{ form.terms_agreed.errors }}
+        <input type="checkbox" id="id_terms_agreed" name="terms_agreed" {% if form.terms_agreed.value %}checked{% endif %}>
+        <label for="id_terms_agreed">I agree to the terms and conditions</label>
+    </div>
+
+    <!-- KYC Confirmed -->
+    <div>
+        {{ form.kyc_confirmed.errors }}
+        <input type="checkbox" id="id_kyc_confirmed" name="kyc_confirmed" {% if form.kyc_confirmed.value %}checked{% endif %}>
+        <label for="id_kyc_confirmed">I confirm that the KYC details provided are accurate</label>
+    </div>
+
+    <!-- Submit Button -->
+    <div>
+        <button type="submit">Submit KYC</button>
+    </div>
+</form>
+
+<!-- Logout Form -->
+<form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
